@@ -26,7 +26,7 @@ import io.MyDecompressorInputStream;
 	 * @author Guy Golan & Amit Sandak.
 	 *
 	 */
-public class MyObservableModel extends CommonModel {
+public class MyObservableModel extends ObservableCommonModel {
 
 
 		public MyObservableModel() {			//Ctor
