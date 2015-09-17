@@ -42,7 +42,8 @@ public class MyObservableModel extends ObservableCommonModel {
 				public void run() {
 					Maze3d maze = new MyMaze3dGenerator().generate(x, y, z);
 					mazeMap.put(name, maze);
-					controller.display("The "+name+" maze is ready.");
+					//controller.display("The "+name+" maze is ready.");
+					notifyObservers("maze is ready : " + name);
 					
 				}
 			});

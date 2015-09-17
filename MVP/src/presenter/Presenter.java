@@ -18,10 +18,33 @@ public class Presenter implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable comp, Object id) {
+		String identifier = ((String)id).split(" : ")[0];
+		String param = ((String)id).split(" : ")[1];
 		
 			
+			if (comp == model)
+			{
+				switch (identifier) 
+				{
+				case ("maze is ready"):
+					view.display("The "+param+" maze is ready.");
+					break;
+					default:
+						break;
+				}
+			}
+			else if (comp == view)
+			{
+				switch (identifier)
+				{
+				default:
+					break;
+					
+				}
 
+			}
 	}
-
+	
 }
+
