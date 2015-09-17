@@ -26,10 +26,10 @@ import io.MyDecompressorInputStream;
 	 * @author Guy Golan & Amit Sandak.
 	 *
 	 */
-public class MyModel extends CommonModel {
+public class MyObservableModel extends CommonModel {
 
 
-		public MyModel() {			//Ctor
+		public MyObservableModel() {			//Ctor
 			super();
 		}
 		
@@ -42,8 +42,8 @@ public class MyModel extends CommonModel {
 				public void run() {
 					Maze3d maze = new MyMaze3dGenerator().generate(x, y, z);
 					mazeMap.put(name, maze);
-					//controller.display("The "+name+" maze is ready.");
-					notifyObservers(maze);
+					controller.display("The "+name+" maze is ready.");
+					
 				}
 			});
 			

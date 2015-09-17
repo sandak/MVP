@@ -10,14 +10,14 @@ import algorithms.mazeGenerators.Position;
 import algorithms.search.Solution;
 import controller.Controller;
 
-public abstract class CommonModel extends Observable implements Model{
+public abstract class ObservableCommonModel extends Observable implements Model{
 	protected Controller controller;
 	protected HashMap<String, Maze3d> mazeMap;
 	protected HashMap<String, Solution<Position>> solutionMap;
 	protected ExecutorService threadPool;
 	
 	
-	public CommonModel() {			//Ctor
+	public ObservableCommonModel() {			//Ctor
 		mazeMap = new HashMap<String, Maze3d>();
 		solutionMap = new HashMap<String, Solution<Position>>();
 		 threadPool = Executors.newCachedThreadPool();
