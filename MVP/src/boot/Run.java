@@ -1,16 +1,15 @@
 package boot;
 
-import model.Model;
-import model.MyModel;
+
+import model.MyObservableModel;
 import presenter.Presenter;
 import view.MyObservableCLIView;
-import view.View;
 
 public class Run {
 
 	public static void main(String[] args) {
 		
-		MyModel model = new MyModel();
+		MyObservableModel model = new MyObservableModel();
 		MyObservableCLIView view = new MyObservableCLIView();
 		Presenter presenter = new Presenter(model,view);
 		
