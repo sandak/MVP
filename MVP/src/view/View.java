@@ -11,7 +11,4 @@ public interface View {
 	public void setCommands(HashMap<String, Command> commandMap);
 	public void exit() ;
 
-
-	
-	
 }
