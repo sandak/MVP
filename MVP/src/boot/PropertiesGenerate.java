@@ -5,18 +5,30 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import presenter.Properties;
 
 public class PropertiesGenerate {
 
 	public static void main(String[] args) throws FileNotFoundException {
-	/*	Properties p = new Properties();
+		Properties p = new Properties();
 		p.setMaxThreads(10);
 		p.setMazeMaxAxisX(15);
 		p.setMazeMaxAxisY(15);
 		p.setMazeMaxAxisZ(15);
 		p.setSolveAlgorithm("BFS");
 		p.setGenerateAlgorithm("MyMaze3dGenerator");
+		
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(p);
+		session.getTransaction().commit();
+		
+		
 		FileOutputStream file;
 		try {
 			file = new FileOutputStream("properties.xml");
@@ -29,15 +41,16 @@ public class PropertiesGenerate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
-
 		
+
+		/*
 		FileInputStream file = new FileInputStream("properties.xml");
 		
 		java.beans.XMLDecoder xe1 = new java.beans.XMLDecoder(file);
 		Properties p = (Properties)xe1.readObject();
 		xe1.close();
 		System.out.println(p.getMaxThreads()+ " " + p.getSolveAlgorithm());
+	*/
 	}
 
 }
