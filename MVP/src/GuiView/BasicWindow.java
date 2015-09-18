@@ -34,6 +34,7 @@ public abstract class BasicWindow implements Runnable{
 		 } // shell is disposed
 
 		 display.dispose(); // dispose OS components
+		 
 	}
 	
 

@@ -7,7 +7,7 @@ import model.Model;
 import view.View;
 
 public class Presenter implements Observer {
-	private MvpModel model;
+	private Model model;
 	private View view;
 	
 	
@@ -39,7 +39,7 @@ public class Presenter implements Observer {
 				switch (identifier)
 				{
 				case ("maze request"):
-					model.getMaze(param[0]);
+					//model.getMaze(param[0]);
 				default:
 					break;
 					

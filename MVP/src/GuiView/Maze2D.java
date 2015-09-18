@@ -1,4 +1,4 @@
-package view;
+package GuiView;
 
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
