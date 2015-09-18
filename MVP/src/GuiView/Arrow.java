@@ -10,9 +10,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 
-public class RightArrow extends Canvas {
+public class Arrow extends Canvas {
 
-	public RightArrow(Composite parent, int style) {
+	public Arrow(Composite parent,String green ,String red,int style) {
 		super(parent, style);
 		setBackground(new Color(null, 255, 255, 255));
 		Canvas canvas = this;
@@ -23,9 +23,9 @@ public class RightArrow extends Canvas {
 			 
 				Image image;
 				if(canvas.getParent().getParent().getSize().x>400)
-					   image = new Image(getDisplay(),"resources/rightGreen.png");
+					   image = new Image(getDisplay(),green);
 				else
-					   image = new Image(getDisplay(),"resources/rightRed.png");
+					   image = new Image(getDisplay(),red);
 
 			     int imageWidth = image.getBounds().width;
 			     int imageHeight = image.getBounds().height;

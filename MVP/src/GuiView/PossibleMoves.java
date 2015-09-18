@@ -5,6 +5,7 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 
@@ -14,13 +15,16 @@ public class PossibleMoves extends Canvas {
 		super(parent, style);
 		setBackground(new Color(null, 255, 255, 255));
 		Canvas canvas = this;
+		canvas.setLayout(new GridLayout(4,false));
+		new Arrow(canvas,"resources/upGreen.png","resources/rightRed.png", SWT.FILL);
+		new RightArrow(canvas, SWT.FILL);
     	addPaintListener(new PaintListener() {
 			
 			@Override
 			public void paintControl(PaintEvent e) {
-				//canvas.setLayout(new GridLayout(4,false));
+				
 				//GC gc = new GC(canvas); 
-				new RightArrow(canvas, SWT.FILL);
+				
 				Image image;
 			if(canvas.getParent().getSize().x>400)
 				   image = new Image(getDisplay(),"resources/rightGreen.png");
