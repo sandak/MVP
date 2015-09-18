@@ -56,8 +56,8 @@ public class PossibleMoves extends Canvas {
 					        e.gc.drawImage(scaledGC200,0,75);
 					        e.gc.drawImage(scaled200,225,175);
 				  
-				  // Image scaledGC = new Image(getDisplay(),(int)(canvas.getSize().x*0.3),(int)(canvas.getSize().y*0.3));
-				 // e.gc.drawImage(image,0,0,canvas.getSize().x,canvas.getSize().y,0,0,(int)(canvas.getSize().x*0.3),(int)(canvas.getSize().x*0.3));
+				   Image scaledGC = new Image(getDisplay(),(int)(canvas.getSize().x*0.3),(int)(canvas.getSize().y*0.3));
+				  e.gc.drawImage(image,0,0,canvas.getSize().x,canvas.getSize().y,0,0,(int)(canvas.getSize().x*0.3),(int)(canvas.getSize().x*0.3));
 		
 			}
 
