@@ -7,7 +7,7 @@ import model.Model;
 import view.View;
 
 public class Presenter implements Observer {
-	private Model model;
+	private MvpModel model;
 	private View view;
 	
 	
@@ -20,7 +20,7 @@ public class Presenter implements Observer {
 	@Override
 	public void update(Observable comp, Object id) {
 		String identifier = ((String)id).split(" : ")[0];
-		String param = ((String)id).split(" : ")[1];
+		String[] param = ((String)id).split(" : ");
 		
 			
 			if (comp == model)
@@ -38,6 +38,8 @@ public class Presenter implements Observer {
 			{
 				switch (identifier)
 				{
+				case ("maze request"):
+					model.getMaze(param[0]);
 				default:
 					break;
 					
