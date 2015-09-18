@@ -23,7 +23,7 @@ public class PossibleMoves extends Canvas {
 		new Arrow(canvas,"resources/leftGreen.png","resources/leftRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		new Arrow(canvas,"resources/rightGreen.png","resources/rightRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		new Arrow(canvas,"resources/downGreen.png","resources/downRed.png", SWT.FILL).setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 2, 1));
-		//new RightArrow(canvas, SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
  //   	addPaintListener(new PaintListener() {
 //			
 //			@Override
