@@ -47,7 +47,7 @@ public class MazeWindow extends BasicWindow{
 	
 	@Override
 	void initWidgets() {
-		shell.setLayout(new GridLayout(3,false));		
+		shell.setLayout(new GridLayout(2,false));		
 		
 	
 		    Menu menuBar = new Menu(shell, SWT.BAR);
@@ -139,7 +139,7 @@ public class MazeWindow extends BasicWindow{
         
 		Button startButton=new Button(shell, SWT.PUSH);
 		startButton.setText("Start");
-		startButton.setLayoutData(new GridData(SWT.FILL, SWT.None, false, false, 1, 1));
+		startButton.setLayoutData(new GridData(SWT.NONE, SWT.None, false, false, 1, 1));
 				
 		
 		//MazeDisplayer maze=new Maze2D(shell, SWT.BORDER);		
@@ -152,7 +152,7 @@ public class MazeWindow extends BasicWindow{
 		stopButton.setEnabled(false);
 		
 		Canvas possibleMoves=new PossibleMoves(shell,SWT.BORDER);
-		possibleMoves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		possibleMoves.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		
 		startButton.addSelectionListener(new SelectionListener() {
 			

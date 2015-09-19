@@ -14,6 +14,7 @@ public class PossibleMoves extends Canvas {
 
 	public PossibleMoves(Composite parent, int style) {
 		super(parent, style);
+	
 		setBackground(new Color(null, 255, 255, 255));
 		Canvas canvas = this;
 		canvas.setLayout(new GridLayout(3,false));
