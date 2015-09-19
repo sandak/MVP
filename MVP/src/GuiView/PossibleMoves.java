@@ -27,9 +27,9 @@ public class PossibleMoves extends Canvas {
 		new Arrow(canvas,"resources/downGreen.png","resources/downRed.png", SWT.FILL).setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 2, 1));
 		
     	
- }
-
 	}
+
+}
 
 
 

@@ -28,22 +28,7 @@ public class MazeWindow extends BasicWindow{
 		super(title, width, height);
 	}
 
-	private void randomWalk(MazeDisplayer maze){
-		Random r=new Random();
-		boolean b1,b2;
-		b1=r.nextBoolean();
-		b2=r.nextBoolean();
-		if(b1&&b2)
-			maze.moveUp();
-		if(b1&&!b2)
-			maze.moveDown();
-		if(!b1&&b2)
-			maze.moveRight();
-		if(!b1&&!b2)
-			maze.moveLeft();
-		
-		maze.redraw();
-	}
+
 	
 	@Override
 	void initWidgets() {
@@ -144,61 +129,23 @@ public class MazeWindow extends BasicWindow{
 		
 		//MazeDisplayer maze=new Maze2D(shell, SWT.BORDER);		
 		MazeDisplayer maze=new Maze3D(shell, SWT.BORDER);
-		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,3));
+		
+		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,5));
 		
 		Button stopButton=new Button(shell, SWT.PUSH);
 		stopButton.setText("  Stop  ");
 		stopButton.setLayoutData(new GridData(SWT.None, SWT.None, false, false, 1, 1));
 		stopButton.setEnabled(false);
 		
+		// cube widget
+		MazeCube mazeCube = new MazeCube(shell, SWT.BORDER);
+		mazeCube.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 2));
+		
 		// possibleMoves widget
 		Canvas possibleMoves=new PossibleMoves(shell,SWT.BORDER);
 		possibleMoves.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, false, false, 1, 1));
 		
-		startButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-				timer=new Timer();
-				task=new TimerTask() {
-					@Override
-					public void run() {
-						display.syncExec(new Runnable() {
-							@Override
-							public void run() {
-								randomWalk(maze);
-							}
-						});
-					}
-				};				
-				timer.scheduleAtFixedRate(task, 0, 100);				
-				startButton.setEnabled(false);
-				stopButton.setEnabled(true);
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {}
-		});
-		
-		stopButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-				task.cancel();
-				timer.cancel();
-				startButton.setEnabled(true);
-				stopButton.setEnabled(false);
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {}
-		});
-		
 	}
-	
-	public static void main(String[] args) {
-		MazeWindow win=new MazeWindow("maze example", 800, 700);
-		win.run();
-	}
-
 }
+
+	
