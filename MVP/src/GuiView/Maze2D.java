@@ -38,32 +38,40 @@ public class Maze2D extends MazeDisplayer{
 	 }
 
 
-	@Override
+	
 	public void setCharacterPosition(int row, int col) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void moveUp() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void moveDown() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void moveLeft() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void setCurrentPosition(int x, int y, int z) {
 		// TODO Auto-generated method stub
 		
 	}

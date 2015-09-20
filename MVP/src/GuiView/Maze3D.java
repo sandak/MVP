@@ -93,7 +93,7 @@ public class Maze3D extends MazeDisplayer {
 	/* (non-Javadoc)
 	 * @see view.MazeDisplayer#moveUp()
 	 */
-	@Override
+	
 	public void moveUp() {
 		int x=characterX;
 		int y=characterY;
@@ -103,7 +103,7 @@ public class Maze3D extends MazeDisplayer {
 	/* (non-Javadoc)
 	 * @see view.MazeDisplayer#moveDown()
 	 */
-	@Override
+	
 	public void moveDown() {
 		int x=characterX;
 		int y=characterY;
@@ -113,7 +113,7 @@ public class Maze3D extends MazeDisplayer {
 	/* (non-Javadoc)
 	 * @see view.MazeDisplayer#moveLeft()
 	 */
-	@Override
+	
 	public void moveLeft() {
 		int x=characterX;
 		int y=characterY;
@@ -123,7 +123,7 @@ public class Maze3D extends MazeDisplayer {
 	/* (non-Javadoc)
 	 * @see view.MazeDisplayer#moveRight()
 	 */
-	@Override
+	
 	public void moveRight() {
 		int x=characterX;
 		int y=characterY;
@@ -131,11 +131,16 @@ public class Maze3D extends MazeDisplayer {
 		moveCharacter(x, y);
 	}
 	
-	@Override
+	
 	public void setCharacterPosition(int row, int col) {
 		characterX=col;
 		characterY=row;
 		moveCharacter(col,row);
+	}
+	@Override
+	public void setCurrentPosition(int x, int y, int z) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,12 +1,11 @@
 package GuiView;
 
-import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 
@@ -14,8 +13,12 @@ public class Arrow extends Canvas {
 
 	public Arrow(Composite parent,String green ,String red,int style) {
 		super(parent, style);
+		
 		setBackground(new Color(null, 255, 255, 255));
 		Canvas canvas = this;
+		
+		
+		
     	addPaintListener(new PaintListener() {
 			
 			@Override
@@ -38,11 +41,11 @@ public class Arrow extends Canvas {
 					canvas.getParent().redraw();
 				
 				  
-					}
+			}
 				      
 				
 		});
     	
- }
+	}
 
 }

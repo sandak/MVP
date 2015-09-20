@@ -14,19 +14,30 @@ public class PossibleMoves extends Canvas {
 		super(parent, style);
 	
 		setBackground(new Color(null, 255, 255, 255));
-		Canvas canvas = this;
-		canvas.setLayout(new GridLayout(3,false));
-		Label title = new Label(canvas, SWT.TITLE);
+		setLayout(new GridLayout(3,false));
+		
+		Label title = new Label(this, SWT.TITLE);
 		title.setText("Possible moves controller");
 		title.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 2));
-		new Arrow(canvas,"resources/upGreen.png","resources/upRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		new Arrow(canvas,"resources/upGreen.png","resources/upRed.png", SWT.FILL).setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, true, 2, 1));
-		new Arrow(canvas,"resources/downGreen.png","resources/downRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true, 1, 2));
-		new Arrow(canvas,"resources/leftGreen.png","resources/leftRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		new Arrow(canvas,"resources/rightGreen.png","resources/rightRed.png", SWT.FILL).setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		new Arrow(canvas,"resources/downGreen.png","resources/downRed.png", SWT.FILL).setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 2, 1));
 		
-    	
+		Arrow lvlUp = new Arrow(this,"resources/upGreen.png","resources/upRed.png", SWT.FILL);
+		lvlUp.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		Arrow up = new Arrow(this,"resources/upGreen.png","resources/upRed.png", SWT.FILL);
+		up.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, true, 2, 1));
+		
+		Arrow lvlDown = new Arrow(this,"resources/downGreen.png","resources/downRed.png", SWT.FILL);
+		lvlDown.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, true, 1, 2));
+		
+		Arrow left = new Arrow(this,"resources/leftGreen.png","resources/leftRed.png", SWT.FILL);
+		left.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		Arrow right = new Arrow(this,"resources/rightGreen.png","resources/rightRed.png", SWT.FILL);
+		left.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		
+		Arrow down = new Arrow(this,"resources/downGreen.png","resources/downRed.png", SWT.FILL);
+		down.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 2, 1));
+
 	}
 
 }

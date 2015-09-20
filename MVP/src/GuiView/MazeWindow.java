@@ -5,6 +5,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -128,9 +130,37 @@ public class MazeWindow extends BasicWindow{
 				
 		
 		//MazeDisplayer maze=new Maze2D(shell, SWT.BORDER);		
-		MazeDisplayer maze=new Maze3D(shell, SWT.BORDER);
-		
+		Maze3D maze=new Maze3D(shell, SWT.BORDER);
+		maze.setFocus();
 		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,5));
+		maze.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(arg0.keyCode == SWT.ARROW_UP)
+				{
+					maze.moveUp();
+				}
+				if(arg0.keyCode == SWT.ARROW_DOWN)
+				{
+					maze.moveDown();
+				}
+				if(arg0.keyCode == SWT.ARROW_LEFT)
+				{
+					maze.moveLeft();
+				}
+				if(arg0.keyCode == SWT.ARROW_RIGHT)
+				{
+					maze.moveRight();
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		Button stopButton=new Button(shell, SWT.PUSH);
 		stopButton.setText("  Stop  ");
