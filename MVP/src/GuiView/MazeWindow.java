@@ -157,8 +157,23 @@ public class MazeWindow extends BasicWindow{
 			
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-				// TODO Auto-generated method stub
 				
+				if(arg0.keyCode == SWT.ARROW_UP)
+				{
+					maze.moveUp();
+				}
+				if(arg0.keyCode == SWT.ARROW_DOWN)
+				{
+					maze.moveDown();
+				}
+				if(arg0.keyCode == SWT.ARROW_LEFT)
+				{
+					maze.moveLeft();
+				}
+				if(arg0.keyCode == SWT.ARROW_RIGHT)
+				{
+					maze.moveRight();
+				}
 			}
 		});
 		
