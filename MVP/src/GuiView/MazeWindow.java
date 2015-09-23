@@ -137,22 +137,7 @@ public class MazeWindow extends BasicWindow{
 			
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				if(arg0.keyCode == SWT.ARROW_UP)
-				{
-					maze.moveUp();
-				}
-				if(arg0.keyCode == SWT.ARROW_DOWN)
-				{
-					maze.moveDown();
-				}
-				if(arg0.keyCode == SWT.ARROW_LEFT)
-				{
-					maze.moveLeft();
-				}
-				if(arg0.keyCode == SWT.ARROW_RIGHT)
-				{
-					maze.moveRight();
-				}
+				
 			}
 			
 			@Override
