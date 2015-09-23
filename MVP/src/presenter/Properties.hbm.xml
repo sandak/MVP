@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 00:11:00 24/09/2015 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="presenter.Properties" table="PROPERTIES">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="mazeMaxAxisX" type="int">
+            <column name="MAZEMAXAXISX" />
+        </property>
+        <property name="mazeMaxAxisY" type="int">
+            <column name="MAZEMAXAXISY" />
+        </property>
+        <property name="mazeMaxAxisZ" type="int">
+            <column name="MAZEMAXAXISZ" />
+        </property>
+        <property name="generateAlgorithm" type="java.lang.String">
+            <column name="GENERATEALGORITHM" />
+        </property>
+        <property name="solveAlgorithm" type="java.lang.String">
+            <column name="SOLVEALGORITHM" />
+        </property>
+        <property name="maxThreads" type="int">
+            <column name="MAXTHREADS" />
+        </property>
+    </class>
+</hibernate-mapping>
