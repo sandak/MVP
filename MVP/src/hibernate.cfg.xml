@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="maze">
-  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.password">Aa123456</property>
-  <property name="hibernate.connection.url">jdbc:mysql://myserver:4020/Maze</property>
-  <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-  <mapping class="presenter.Properties"/>
- </session-factory>
+    <session-factory name="maze">
+        <property name="hibernate.connection.driver_class">com.microsoft.jdbc.sqlserver.SQLServerDriver</property>
+        <property name="hibernate.connection.password">Aa123456</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://db.cs.colman.ac.il\SandakAndGuyDB:1433</property>
+        <property name="hibernate.connection.username">sandak</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    </session-factory>
 </hibernate-configuration>
