@@ -42,8 +42,8 @@ public class MyObservableModel extends ObservableCommonModel {
 				public void run() {
 					Maze3d maze = new MyMaze3dGenerator().generate(x, y, z);
 					mazeMap.put(name, maze);
-					//controller.display("The "+name+" maze is ready.");
-					notifyObservers("maze is ready : " + name);
+					setChanged();
+					notifyObservers("completedTask maze generated " + name);
 					
 				}
 			});
@@ -52,21 +52,22 @@ public class MyObservableModel extends ObservableCommonModel {
 
 
 		@Override
-		public void mazeDisplay(String name) {
+		public Maze3d getMaze(String name) {
 			Maze3d  temp = mazeMap.get(name);
 			
 			if(temp != null)
 			{
-				controller.display(name+ "\n" +temp.toString());	
+				return temp;	
 			}
 			else
 			{
-				controller.display("Unavailable maze!");
+				//return("Unavailable maze!");
+				return null;
 			}
 		}
 
 		@Override
-		public void displayCrossSectionByX(int index, String name) {
+		public void getCrossSectionByX(int index, String name) {
 			Maze3d  tmpMaze = mazeMap.get(name);
 			
 			if(tmpMaze != null)
@@ -81,7 +82,7 @@ public class MyObservableModel extends ObservableCommonModel {
 
 
 		@Override
-		public void displayCrossSectionByY(int index, String name) {
+		public void getCrossSectionByY(int index, String name) {
 			Maze3d  tmpMaze = mazeMap.get(name);
 			
 			if(tmpMaze != null)
@@ -96,7 +97,7 @@ public class MyObservableModel extends ObservableCommonModel {
 		}
 
 		@Override
-		public void displayCrossSectionByZ(int index, String name) {
+		public void getCrossSectionByZ(int index, String name) {
 			Maze3d  tmpMaze = mazeMap.get(name);
 			
 			if(tmpMaze != null)
@@ -273,20 +274,18 @@ public class MyObservableModel extends ObservableCommonModel {
 		}
 
 		@Override
-		public void displaySolution(String name) {
+		public Solution<Position> getSolution(String name) {
 			Solution<Position>  tmp = solutionMap.get(name);
 			
 			if(tmp != null)
 			{
-				controller.display("the solution of " +name+ " maze is:\n" +(tmp.toString()));	
+				return(tmp);	
 			}
 			else
 			{
-				controller.display("Unavailable solution!");
-			}
-		
-
-			
+				//return("Unavailable solution!");
+				return null;
+			}	
 		}
 
 		@Override
@@ -296,10 +295,10 @@ public class MyObservableModel extends ObservableCommonModel {
 				if (!threadPool.awaitTermination(5,TimeUnit.SECONDS ))
 				{
 					threadPool.shutdownNow();
-					controller.display("threads terminated violently!");
+//					presenter.get.display("threads terminated violently!");
 				}
-				else
-					controller.display("all threads terminated!");
+				//else
+//					controller.display("all threads terminated!");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}	

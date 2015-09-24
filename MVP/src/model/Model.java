@@ -1,5 +1,9 @@
 package model;
 
+import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Position;
+import algorithms.search.Solution;
+
 /**
  * Defines what every Model can do.
  * @author Guy Golan & Amit Sandak
@@ -19,25 +23,21 @@ public interface Model {
 	 * Displays a  Maze3d according to its name.
 	 * @param name - the Maze3d name.
 	 */
-	void mazeDisplay(String name);
+	Maze3d getMaze(String name);
 	/**
 	 * Calculates and displays(using controller) the crossSection by X.
 	 * @param index - index of X.
 	 * @param name - Maze3d name.
 	 */
-	void displayCrossSectionByX(int index, String name);
-	/**
-	 * Calculates and displays(using controller) the crossSection by Y.
-	 * @param index - index of Y.
-	 * @param name - Maze3d name.
-	 */
-	void displayCrossSectionByY(int index, String name);
+	void getCrossSectionByX(int index, String name);
+	
+	void getCrossSectionByY(int index, String name);
 	/**
 	 * Calculates and displays(using controller) the crossSection by Z.
 	 * @param index - index of Z.
 	 * @param name - Maze3d name.
 	 */
-	void displayCrossSectionByZ(int index, String name);
+	void getCrossSectionByZ(int index, String name);
 	/**
 	 * Save a Maze3d to the given file.
 	 * @param name - Maze3d name.
@@ -71,7 +71,7 @@ public interface Model {
 	 * Display the solution (using the controller) of a Maze3d (by its name).
 	 * @param name - Maze3d's name
 	 */
-	void displaySolution(String name);
+	Solution<Position> getSolution(String name);
 	/**
 	 * Safely closing all resources.
 	 */
