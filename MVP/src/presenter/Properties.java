@@ -5,14 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class Properties implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
 	protected int mazeMaxAxisX;
 	protected int mazeMaxAxisY;
 	protected int mazeMaxAxisZ;
