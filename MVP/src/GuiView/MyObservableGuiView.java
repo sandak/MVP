@@ -3,6 +3,9 @@ package GuiView;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
+import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Position;
+
 public class MyObservableGuiView extends ObservableCommonGuiView {
 
 	MazeWindow mainWindow;
@@ -26,7 +29,7 @@ public class MyObservableGuiView extends ObservableCommonGuiView {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				setChanged();
-				notifyObservers("generate 3d maze gui 15 15 15");
+				notifyObservers("generate 3d maze gui 15 3 15");
 			}
 			
 			@Override
@@ -68,8 +71,14 @@ public class MyObservableGuiView extends ObservableCommonGuiView {
 	}
 
 	@Override
-	public void display(int[][] maze) {
+	public void display(Maze3d maze) {
 		mainWindow.setMazeData(maze);
+		
+	}
+
+	@Override
+	public void display(Position charPosition) {
+		mainWindow.setPositionData(charPosition);
 		
 	}
 

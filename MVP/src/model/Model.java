@@ -76,4 +76,6 @@ public interface Model {
 	 * Safely closing all resources.
 	 */
 	void exit();
+	
+	Position getCharPosition(String string);
 }

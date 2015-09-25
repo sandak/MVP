@@ -18,8 +18,11 @@ public class CompletedTask extends CommonCommand implements Command {
 		{
 			Maze3d maze = presenter.getModel().getMaze(s[2]);
 			if (maze != null)
+			{
 				//presenter.getView().display(s[2]+" maze generated.");
-				presenter.getView().display(presenter.getModel().getMaze(s[2]).getCrossSectionByX(1));
+				presenter.getView().display(presenter.getModel().getMaze(s[2]));
+				presenter.getView().display(presenter.getModel().getCharPosition(s[2]));
+			}
 			else
 				presenter.getView().display("Unavailable maze!");
 				 

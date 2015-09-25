@@ -23,16 +23,20 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
 import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Position;
 
 public class MazeWindow extends BasicWindow{
 	protected Maze3d maze;
+	protected Position charPosition;
 	protected SelectionListener exitListener;
 	protected SelectionListener generateListener;
-	ArrayList<Canvas> widgetsList;
+	ArrayList<MazeDisplayer> widgetsList;
 	
 	public void setMazeData(Maze3d maze)
 	{
 		this.maze = maze;
+		widgetsRefresh();
+	
 	}
 	public void setGenerateListener(SelectionListener generateListener) {
 		this.generateListener = generateListener;
@@ -41,7 +45,7 @@ public class MazeWindow extends BasicWindow{
 
 	public MazeWindow( String title, int width, int height) {
 		super(title, width, height);
-		widgetsList = new ArrayList<Canvas>();
+		widgetsList = new ArrayList<MazeDisplayer>();
 	}
 
 
@@ -138,8 +142,9 @@ public class MazeWindow extends BasicWindow{
 		generateButton.setLayoutData(new GridData(SWT.NONE, SWT.None, false, false, 1, 1));
 		generateButton.addSelectionListener(generateListener);		
 		
-		//MazeDisplayer maze=new Maze2D(shell, SWT.BORDER);		
-		Maze3D mazeWidget=new Maze3D(shell, SWT.BORDER);
+		MazeDisplayer mazeWidget=new Maze2D(shell, SWT.BORDER);	
+		widgetsList.add(mazeWidget);
+		//Maze3D mazeWidget=new Maze3D(shell, SWT.BORDER);
 		mazeWidget.setFocus();
 		mazeWidget.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,5));
 		mazeWidget.addKeyListener(new KeyListener() {
@@ -152,22 +157,22 @@ public class MazeWindow extends BasicWindow{
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				
-				if(arg0.keyCode == SWT.ARROW_UP)
-				{
-					mazeWidget.moveUp();
-				}
-				if(arg0.keyCode == SWT.ARROW_DOWN)
-				{
-					mazeWidget.moveDown();
-				}
-				if(arg0.keyCode == SWT.ARROW_LEFT)
-				{
-					mazeWidget.moveLeft();
-				}
-				if(arg0.keyCode == SWT.ARROW_RIGHT)
-				{
-					mazeWidget.moveRight();
-				}
+//				if(arg0.keyCode == SWT.ARROW_UP)
+//				{
+//					mazeWidget.moveUp();
+//				}
+//				if(arg0.keyCode == SWT.ARROW_DOWN)
+//				{
+//					mazeWidget.moveDown();
+//				}
+//				if(arg0.keyCode == SWT.ARROW_LEFT)
+//				{
+//					mazeWidget.moveLeft();
+//				}
+//				if(arg0.keyCode == SWT.ARROW_RIGHT)
+//				{
+//					mazeWidget.moveRight();
+//				}
 			}
 		});
 		
@@ -179,16 +184,34 @@ public class MazeWindow extends BasicWindow{
 		// cube widget
 		MazeCube mazeCube = new MazeCube(shell, SWT.BORDER);
 		mazeCube.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 2));
+		widgetsList.add(mazeCube);
 		
 		// possibleMoves widget
-		Canvas possibleMoves=new PossibleMoves(shell,SWT.BORDER);
+		MazeDisplayer possibleMoves=new PossibleMoves(shell,SWT.BORDER);
 		possibleMoves.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, false, false, 1, 1));
+		widgetsList.add(possibleMoves);
 		
 	}
 	
 	protected void exitRequest() {
 		shell.dispose();
 
+	}
+	
+	public void widgetsRefresh()
+	{
+		for (MazeDisplayer canvas : widgetsList) {
+			if(maze!=null)
+				canvas.setMazeData(maze);
+			if(charPosition!=null)
+				canvas.setCharPosition(charPosition);
+			
+		}
+	}
+	public void setPositionData(Position charPosition) {
+		this.charPosition = charPosition;
+		widgetsRefresh();
+		
 	}
 }
 

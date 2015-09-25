@@ -42,6 +42,7 @@ public class MyObservableModel extends ObservableCommonModel {
 				public void run() {
 					Maze3d maze = new MyMaze3dGenerator().generate(x, y, z);
 					mazeMap.put(name, maze);
+					charPositionMap.put(name, maze.getEntrance());
 					setChanged();
 					notifyObservers("completedTask maze generated " + name);
 					
@@ -303,6 +304,11 @@ public class MyObservableModel extends ObservableCommonModel {
 				e.printStackTrace();
 			}	
 				
+		}
+
+		@Override
+		public Position getCharPosition(String name) {
+			return charPositionMap.get(name);
 		}
 	}
 

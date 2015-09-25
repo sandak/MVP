@@ -2,40 +2,54 @@ package GuiView;
 
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
 import algorithms.mazeGenerators.Maze3d;
+import algorithms.mazeGenerators.Position;
 
 
 
 public abstract class MazeDisplayer extends Canvas{
-
 	
-	// stub
-	int[][] mazeData={
-			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-			{1,0,0,0,0,0,0,0,1,1,0,1,0,0,1},
-			{0,0,1,1,1,1,1,0,0,1,0,1,0,1,1},
-			{1,1,1,0,0,0,1,0,1,1,0,1,0,0,1},
-			{1,0,1,0,1,1,1,0,0,0,0,1,1,0,1},
-			{1,1,0,0,0,1,0,0,1,1,1,1,0,0,1},
-			{1,0,0,1,0,0,1,0,0,0,0,1,0,1,1},
-			{1,0,1,1,0,1,1,0,1,1,0,0,0,1,1},
-			{1,0,0,0,0,0,0,0,0,1,0,1,0,0,1},
-			{1,1,1,1,1,1,1,1,1,1,1,1,0,1,1},
-		};
+	protected Maze3d mazeData;
+	protected Position charPosition;
+	
+//	// stub
+//	int[][] mazeData={
+//			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//			{1,0,0,0,0,0,0,0,1,1,0,1,0,0,1},
+//			{0,0,1,1,1,1,1,0,0,1,0,1,0,1,1},
+//			{1,1,1,0,0,0,1,0,1,1,0,1,0,0,1},
+//			{1,0,1,0,1,1,1,0,0,0,0,1,1,0,1},
+//			{1,1,0,0,0,1,0,0,1,1,1,1,0,0,1},
+//			{1,0,0,1,0,0,1,0,0,0,0,1,0,1,1},
+//			{1,0,1,1,0,1,1,0,1,1,0,0,0,1,1},
+//			{1,0,0,0,0,0,0,0,0,1,0,1,0,0,1},
+//			{1,1,1,1,1,1,1,1,1,1,1,1,0,1,1},
+//		};
 
 	
 	public MazeDisplayer(Composite parent, int style) {
 		super(parent, style);
+		charPosition = new Position(1,1,1);
 	}
 
-	public void setMazeData(int[][] mazeData){
+	public void setMazeData(Maze3d mazeData){
 		this.mazeData=mazeData;
-		System.out.println("dsd");
-		this.redraw();
-	}
+		Display.getDefault().syncExec(new Runnable() {
+		    public void run() {
+		redraw();
+		update();
+	}});}
 	
-	public abstract  void setCurrentPosition(int x,int y, int z);
+	public void setCharPosition(Position position){
+		this.charPosition=position;
+		Display.getDefault().syncExec(new Runnable() {
+		    public void run() {
+		redraw();
+		update();
+	}});}
+
 
 
 }

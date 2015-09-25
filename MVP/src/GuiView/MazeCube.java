@@ -65,14 +65,5 @@ public class MazeCube extends MazeDisplayer {
 		});
 	}
 
-	
-	
-	
-	
-	@Override
-	public void setCurrentPosition(int x, int y, int z) {
-		
-
-	}
 
 }
