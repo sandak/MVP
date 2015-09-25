@@ -1,10 +1,13 @@
-package view;
+package cliView;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Observable;
 
-public abstract class ObservableCommonCLIView extends Observable implements View {
+import view.ObservableCommonView;
+import view.View;
+
+public abstract class ObservableCommonCLIView extends ObservableCommonView {
 
 	protected BufferedReader in;
 	protected PrintWriter out;

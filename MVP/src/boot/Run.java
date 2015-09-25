@@ -1,9 +1,9 @@
 package boot;
 
 
+import cliView.MyObservableCLIView;
 import model.MyObservableModel;
 import presenter.Presenter;
-import view.MyObservableCLIView;
 
 public class Run {
 

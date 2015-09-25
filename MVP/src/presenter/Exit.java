@@ -16,6 +16,7 @@ public class Exit extends CommonCommand {
 	 */
 	@Override
 	public void doCommand(String param) {
+		System.out.println("PRESENTER EXIT");
 		presenter.getView().exit();
 		presenter.getModel().exit();
 		

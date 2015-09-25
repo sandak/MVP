@@ -1,5 +1,6 @@
 package GuiView;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,17 +22,35 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
-public class MazeWindow extends BasicWindow{
+import algorithms.mazeGenerators.Maze3d;
 
-	Timer timer;
-	TimerTask task;
+public class MazeWindow extends BasicWindow{
+	protected Maze3d maze;
+	protected SelectionListener exitListener;
+	protected SelectionListener generateListener;
+	ArrayList<Canvas> widgetsList;
 	
-	public MazeWindow(String title, int width, int height) {
-		super(title, width, height);
+	public void setMazeData(Maze3d maze)
+	{
+		this.maze = maze;
+	}
+	public void setGenerateListener(SelectionListener generateListener) {
+		this.generateListener = generateListener;
 	}
 
 
+	public MazeWindow( String title, int width, int height) {
+		super(title, width, height);
+		widgetsList = new ArrayList<Canvas>();
+	}
+
+
+	public void setExitListener(SelectionListener exitListener) {
+		this.exitListener = exitListener;
+	}
+
 	
+
 	@Override
 	void initWidgets() {
 		shell.setLayout(new GridLayout(2,false));		
@@ -67,17 +86,7 @@ public class MazeWindow extends BasicWindow{
 		    
 		    MenuItem fileExitItem = new MenuItem(fileMenu, SWT.PUSH);
 		    fileExitItem.setText("Exit");
-		    fileExitItem.addSelectionListener(new SelectionListener() {
-				
-				@Override
-				public void widgetSelected(SelectionEvent arg0) {
-					shell.dispose();
-					
-				}
-				
-				@Override
-				public void widgetDefaultSelected(SelectionEvent arg0) {}
-			});
+		    fileExitItem.addSelectionListener(exitListener);
 
 		    MenuItem MazeMenuHeader = new MenuItem(menuBar, SWT.CASCADE);
 		    MazeMenuHeader.setText("Maze");
@@ -124,16 +133,16 @@ public class MazeWindow extends BasicWindow{
 		    
 		    shell.setMenuBar(menuBar);
         
-		Button startButton=new Button(shell, SWT.PUSH);
-		startButton.setText("  Start  ");
-		startButton.setLayoutData(new GridData(SWT.NONE, SWT.None, false, false, 1, 1));
-				
+		Button generateButton=new Button(shell, SWT.PUSH);
+		generateButton.setText("  Generate new maze  ");
+		generateButton.setLayoutData(new GridData(SWT.NONE, SWT.None, false, false, 1, 1));
+		generateButton.addSelectionListener(generateListener);		
 		
 		//MazeDisplayer maze=new Maze2D(shell, SWT.BORDER);		
-		Maze3D maze=new Maze3D(shell, SWT.BORDER);
-		maze.setFocus();
-		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,5));
-		maze.addKeyListener(new KeyListener() {
+		Maze3D mazeWidget=new Maze3D(shell, SWT.BORDER);
+		mazeWidget.setFocus();
+		mazeWidget.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,5));
+		mazeWidget.addKeyListener(new KeyListener() {
 			
 			@Override
 			public void keyReleased(KeyEvent arg0) {
@@ -145,19 +154,19 @@ public class MazeWindow extends BasicWindow{
 				
 				if(arg0.keyCode == SWT.ARROW_UP)
 				{
-					maze.moveUp();
+					mazeWidget.moveUp();
 				}
 				if(arg0.keyCode == SWT.ARROW_DOWN)
 				{
-					maze.moveDown();
+					mazeWidget.moveDown();
 				}
 				if(arg0.keyCode == SWT.ARROW_LEFT)
 				{
-					maze.moveLeft();
+					mazeWidget.moveLeft();
 				}
 				if(arg0.keyCode == SWT.ARROW_RIGHT)
 				{
-					maze.moveRight();
+					mazeWidget.moveRight();
 				}
 			}
 		});
@@ -176,6 +185,12 @@ public class MazeWindow extends BasicWindow{
 		possibleMoves.setLayoutData(new GridData(SWT.FILL, SWT.BOTTOM, false, false, 1, 1));
 		
 	}
+	
+	protected void exitRequest() {
+		shell.dispose();
+
+	}
 }
+
 
 	

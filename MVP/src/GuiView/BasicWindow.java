@@ -8,12 +8,14 @@ public abstract class BasicWindow implements Runnable{
 	
 	Display display;
 	Shell shell;
+
 	
- 	public BasicWindow(String title, int width,int height) {
+ 	public BasicWindow( String title, int width,int height) {
  		display=new Display();
  		shell  = new Shell(display);
  		shell.setSize(width,height);
  		shell.setText(title);
+ 		
 	}
  	
  	abstract void initWidgets();
@@ -35,6 +37,10 @@ public abstract class BasicWindow implements Runnable{
 
 		 display.dispose(); // dispose OS components
 		 
+	}
+	public void exit()
+	{
+		shell.dispose(); 
 	}
 	
 

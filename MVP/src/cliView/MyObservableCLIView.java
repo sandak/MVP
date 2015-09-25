@@ -1,4 +1,4 @@
-package view;
+package cliView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,6 +63,12 @@ new Thread(new Runnable() {					//the user interface runs in an independant thre
 	@Override
 	public void exit() {
 		exit = true;
+		
+	}
+
+	@Override
+	public void exitRequest() {
+		// TODO Auto-generated method stub
 		
 	}
 	

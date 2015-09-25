@@ -32,7 +32,6 @@ public class Maze3D extends MazeDisplayer {
 	}
 	public Maze3D(Composite parent, int style) {
 		super(parent, style);
-		
 		final Color white=new Color(null, 255, 255, 255);
 		final Color black=new Color(null, 150,150,150);
 		setBackground(white);
