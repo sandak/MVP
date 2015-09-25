@@ -136,7 +136,7 @@ public class Maze3D extends MazeDisplayer {
 		characterY=row;
 		moveCharacter(col,row);
 	}
-	@Override
+	
 	public void setCurrentPosition(int x, int y, int z) {
 		// TODO Auto-generated method stub
 		
